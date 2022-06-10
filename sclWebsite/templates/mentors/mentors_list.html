@@ -44,23 +44,21 @@
             </div>
         </section>
 
-        <div class="container mt-3">
-            <h2 class="ml-auto">Mentors</h2>
-        </div>
 
         <section id="courses" class="courses">
             <div class="container" data-aos="fade-up">
 
                 <div class="row" data-aos="zoom-in" data-aos-delay="100">
                     {% for query in mentors %}
-                        <div class="col-lg-4 col-md-6 d-flex align-items-stretch mb-2">
-                            <div class="course-item">
+                        <div class="col-lg-4 col-md-6 d-flex align-items-stretch ">
+                            <div class="course-item border  border-dark">
                                 <img src="{{ query.image.url }}" class="img-fluid img-top" alt="{{ query.name }}">
                                 <div class="course-content">
                                     <div class="d-flex justify-content-between align-items-center mb-3">
                                         30 cookies for 30 minutes
                                     </div>
                                     <h3>{{ query.name }}</h3>
+                                    <h3>{{query.profession}}</h3>
                                     <p class="wrapping">{{ query.guidance }}</p>
                                     <div class="trainer d-flex justify-content-between align-items-center">
                                         <div class="trainer-rank d-flex align-items-center">

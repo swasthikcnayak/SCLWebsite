@@ -3,12 +3,12 @@
 ::-moz-selection {
   /* Code for Firefox */
   color: #fff;
-  background: #fa1616b8;
+  background: #101E3F;
 }
 
 ::selection {
   color: #fff;
-  background: #fa1616b8;
+  background: #101E3F;
 }
 
 /* width */
@@ -20,21 +20,21 @@
 /* Track */
 
 ::-webkit-scrollbar-track {
-  background: #f1f1f1;
+  background: #101E3F;
   border-radius: 6px;
 }
 
 /* Handle */
 
 ::-webkit-scrollbar-thumb {
-  background: #f5587b;
+  background: #101E3F;
   border-radius: 6px;
 }
 
 /* Handle on hover */
 
 ::-webkit-scrollbar-thumb:hover {
-  background: #e41749;
+  background: #101E3F;
 }
 
 /*--------------------------------------------------------------
@@ -47,7 +47,7 @@ body {
 }
 
 a {
-  color: #f5587b;
+  color: #101E3F;
 }
 
 a:hover {
@@ -84,13 +84,13 @@ h6 {
   width: 40px;
   height: 40px;
   border-radius: 50px;
-  background: #f5587b;
+  background: #101E3F;
   color: #fff;
   transition: all 0.4s;
 }
 
 .back-to-top i:hover {
-  background: #e41749;
+  background: #101E3F;
   color: #fff;
 }
 
@@ -124,7 +124,8 @@ h6 {
 --------------------------------------------------------------*/
 
 #header {
-  background: #e41749;
+  background: #101E3F;
+  color: #101E3F;
   transition: all 0.5s;
   z-index: 997;
   padding: 15px 0;
@@ -225,13 +226,13 @@ h6 {
   font-size: 14px;
   font-weight: 500;
   text-transform: none;
-  color: #f5587b;
+  color: #101E3F;
 }
 
 .nav-menu .drop-down ul a:hover,
 .nav-menu .drop-down ul .active > a,
 .nav-menu .drop-down ul li:hover > a {
-  color: #e41749;
+  color: #101E3F;
 }
 
 .nav-menu .drop-down > a:after {
@@ -278,7 +279,7 @@ h6 {
 
 .get-started-btn {
   margin-left: 22px;
-  background: #f5587b;
+  background: #101E3F;
   color: #fff;
   border-radius: 50px;
   padding: 8px 25px;
@@ -289,7 +290,7 @@ h6 {
 }
 
 .get-started-btn-special {
-  background: #f5587b;
+  background: #101E3F;
   color: #fff;
   border-radius: 50px;
   padding: 8px 25px;
@@ -300,12 +301,12 @@ h6 {
 }
 
 .get-started-btn:hover {
-  background: #e41749;
+  background: #101E3F;
   color: #fff;
 }
 
 .get-started-btn-special:hover {
-  background: #e41749;
+  background: #101E3F;
   color: #fff;
 }
 
@@ -371,7 +372,7 @@ h6 {
 .mobile-nav a:hover,
 .mobile-nav .active > a,
 .mobile-nav li:hover > a {
-  color: #e41749;
+  color: #101E3F;
   text-decoration: none;
 }
 
@@ -423,7 +424,7 @@ h6 {
 }
 
 .mobile-nav-active .mobile-nav-toggle i {
-  color: #e41749;
+  color: #101E3F;
 }
 
 /*--------------------------------------------------------------
@@ -488,8 +489,8 @@ h6 {
 }
 
 #hero .btn-get-started:hover {
-  background: #e41749;
-  border: 2px solid #e41749;
+  background: #101E3F;
+  border: 2px solid #101E3F;
 }
 
 @media (min-width: 1024px) {
@@ -546,7 +547,7 @@ section {
   width: 120px;
   height: 1px;
   display: inline-block;
-  background: #e41749;
+  background: #101E3F;
   margin: 4px 10px;
 }
 
@@ -568,7 +569,7 @@ section {
   min-height: 40px;
   margin-top: 73px;
   padding: 30px 0;
-  color: #e41749;
+  color: #101E3F;
 }
 
 @media (max-width: 992px) {
@@ -648,7 +649,7 @@ section {
 .about .play-btn {
   width: 94px;
   height: 94px;
-  background: radial-gradient(#f82249 50%, rgba(101, 111, 150, 0.15) 52%);
+  background: radial-gradient(#101E3F 50%, white, 52%);
   border-radius: 50%;
   display: block;
   position: absolute;
@@ -696,7 +697,7 @@ section {
 }
 
 .about .play-btn:hover::after {
-  border-left: 15px solid #f82249;
+  border-left: 15px solid #101E3F;
   transform: scale(20);
 }
 
@@ -742,7 +743,7 @@ section {
 
 .about .content .learn-more-btn {
   background: #fff;
-  color: #ff8a5c;
+  color: #101E3F;
   border-radius: 50px;
   padding: 8px 25px 9px 25px;
   white-space: nowrap;
@@ -774,7 +775,7 @@ section {
 .counts .counters span {
   font-size: 48px;
   display: block;
-  color: #e41749;
+  color: #101E3F;
   font-weight: 700;
 }
 
@@ -793,7 +794,7 @@ section {
 
 .why-us .content {
   padding: 30px;
-  background: #e41749;
+  background: #101E3F;
   border-radius: 4px;
   color: #fff;
 }

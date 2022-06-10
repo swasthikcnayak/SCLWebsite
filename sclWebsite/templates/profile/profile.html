@@ -154,6 +154,7 @@
                                     <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                                         <thead>
                                         <tr>
+                                            <th>Date</th>
                                             <th>Team Name</th>
                                             <th>Requested By</th>
                                             <th>Mark completed</th>
@@ -162,6 +163,7 @@
                                         <tbody>
                                         {% for entry in requested_sessions %}
                                             <tr>
+                                                 <td>{{entry.date}}</td>
                                                 <td>
                                                     <div class="media align-items-center">
                                                         <div class="media-body">
@@ -195,6 +197,7 @@
                                     <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                                         <thead>
                                         <tr>
+                                            <th>Date</th>
                                             <th>Team Name</th>
                                             <th>Requested By</th>
                                             <th>Mark Incomplete</th>
@@ -203,6 +206,7 @@
                                         <tbody>
                                         {% for entry in completed_sessions %}
                                             <tr>
+                                                <td>{{entry.date}}</td>
                                                 <td>
                                                     <div class="media align-items-center">
                                                         <div class="media-body">
