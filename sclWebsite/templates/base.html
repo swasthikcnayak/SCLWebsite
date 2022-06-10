@@ -1,0 +1,43 @@
+{% load i18n %}
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    {% comment %} Meta details {% endcomment %}
+    {% comment %} <title>{% block title %}{% endblock title %}</title> {% endcomment %}
+    <meta name="description" content="{% block description %}{% endblock %}">
+    {% include 'include/meta.html' %}
+
+    {% comment %} Includes style block  {% endcomment %}
+    {% block main_style %}
+    {% endblock main_style %}
+    {% include 'include/styles.html' %}
+    {% block style %}
+    {% endblock style %}
+
+</head>
+
+<body>
+{% include "include/header.html" %}
+
+{% block loader %}
+{% endblock loader %}
+
+
+{% block content %}
+{% endblock content %}
+
+
+{% include "include/footer.html" %}
+
+
+{% comment %} Script block and Script tags including notification scripts {% endcomment %}
+{% include "include/scripts.html" %}
+{% block script %}
+{% endblock script %}
+{% include 'include/notification.html' %}
+
+</body>
+</html>
