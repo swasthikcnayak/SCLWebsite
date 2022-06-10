@@ -8,6 +8,7 @@ from django.shortcuts import render, redirect, get_object_or_404
 from .forms import UserUpdateForm, ProfileUpdateForm, UserRegisterForm
 from .models import Profile, Request
 from teams.models import Teams
+from django.core.mail import send_mail
 
 
 def register(request):
@@ -31,11 +32,7 @@ def user_login(request):
     if request.POST:
         user_cred = request.POST['username']
         password = request.POST['password']
-        if email_check(user_cred):
-            username = User.objects.get(email=user_cred).username
-            user = authenticate(request, username=username, password=password)
-        else:
-            user = authenticate(request, username=user_cred, password=password)
+        user = authenticate(request, username=user_cred, password=password)
         if user is not None:
             login(request, user)
             messages.success(request, 'You have logged into your account!!')
@@ -75,7 +72,6 @@ def profile(request):
             'username': query.user.username,
             'batch': query.batch,
             'name': query.name,
-            'phone': query.phone,
             'college': query.college,
             'degree': query.degree,
             'branch': query.branch,
@@ -93,22 +89,37 @@ def profile(request):
     return render(request, 'profile/profile.html', context=context)
 
 
+@login_required
 def mentors_list(request):
     mentors = Profile.objects.filter(role='2')
     return render(request, 'mentors/mentors_list.html', {'mentors': mentors})
 
 
+@login_required
 def request_time(request, mentor_id):
     requesting_user = request.user
     requesting_profile = get_object_or_404(Profile, user__id=requesting_user.id)
     requesting_team = get_object_or_404(Teams, id=requesting_profile.team.id)
     mentor = get_object_or_404(Profile, user__id=mentor_id)
-    Request(requested_by=requesting_profile, team=requesting_team, mentor=mentor).save()
-    messages.success(request,
-                     f'Your request for the session is booked with {mentor.name}, please expect the response soon.')
-    return redirect('home')
+    if requesting_profile.role != 1:
+        messages.error(request, 'You are not authorized')
+        return redirect('mentors')
+    if requesting_team.cookies >= 30:
+        request_time_record = Request(requested_by=requesting_profile, team=requesting_team, mentor=mentor)
+        request_time_record.save()
+        requesting_team.cookies = requesting_team.cookies - 30;
+        requesting_team.save()
+        send_the_email(request_time_record)
+        messages.success(request,
+                         f'Your request for the session is booked with {mentor.name}, please expect a mail soon with '
+                         f'the calendly link. Please set up session using the link.'
+                         f'Also please check in spam and report not spam for future use cases')
+        return redirect('mentors')
+    messages.error(request, f'You dont have enough cookies in your account for booking a session')
+    return redirect('mentors')
 
 
+@login_required
 def completed_session(request, request_id):
     record = get_object_or_404(Request, id=request_id)
     record.status = '2'
@@ -117,6 +128,7 @@ def completed_session(request, request_id):
     return redirect('profile')
 
 
+@login_required
 def incompleted_session(request, request_id):
     record = get_object_or_404(Request, id=request_id)
     record.status = '1'
@@ -125,9 +137,10 @@ def incompleted_session(request, request_id):
     return redirect('profile')
 
 
-def email_check(email):
-    regex = '^[a-z0-9]+[\._]?[a-z0-9]+[@]\w+[.]\w{2,3}$'
-    if re.search(regex, email):
-        return True
-    else:
-        return None
+def send_the_email(request_time_record):
+    calendly_link = request_time_record.mentor.calendly
+    to_email = request_time_record.requested_by.user.email
+    subject = "Book your session with Mentor"
+    message = f'Hello, we are happy to help you with your questions, please use {calendly_link} to connect with the ' \
+              f'{request_time_record.mentor.name} and book a session '
+    send_mail(subject, message, None, [to_email])

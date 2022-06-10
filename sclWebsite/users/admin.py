@@ -5,7 +5,7 @@ from .models import Profile, Request
 
 @admin.register(Profile)
 class ProfileAdmin(admin.ModelAdmin):
-    list_display = ("id", "user", "role", "batch", "phone", "name", "college")
+    list_display = ("id", "user", "role", "batch", "name", "college")
     search_fields = ("user__username", "role", "batch")
     list_filter = ("role", "batch")
     list_display_links = ("user", "id")

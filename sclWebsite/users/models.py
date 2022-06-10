@@ -17,6 +17,7 @@ BATCH = (
     ("2019", "2019"),
     ("2020", "2020"),
     ("2021", "2021"),
+    ("2022", "2022"),
     ("None", "None"),
 )
 
@@ -34,7 +35,6 @@ class Profile(models.Model):
     role = models.CharField(max_length=20, choices=ROLE, help_text='Role of the user', default='1')
     batch = models.CharField(max_length=10, choices=BATCH, default="2019", null=True)
     name = models.CharField(max_length=100, default=None, blank=True, null=True)
-    phone = models.PositiveBigIntegerField(default=None, blank=True, null=True)
     college = models.CharField(max_length=300, default=None, blank=True, null=True)
     degree = models.CharField(max_length=100, default=None, blank=True, null=True)
     branch = models.CharField(max_length=100, default=None, blank=True, null=True)
@@ -42,6 +42,7 @@ class Profile(models.Model):
     guidance = models.TextField(default=None, blank=True, null=True)
     linkedin = models.URLField(default=None, blank=True, null=True)
     github = models.URLField(default=None, blank=True, null=True)
+    calendly = models.URLField(default=None, blank=True, null=True)
 
     def __str__(self):
         if self.name:
@@ -85,7 +86,7 @@ STATUS = (
 
 
 class Request(models.Model):
-    date = models.DateField(auto_now_add=True, blank=True,null=True)
+    date = models.DateField(auto_now_add=True, blank=True, null=True)
     requested_by = models.ForeignKey(Profile, on_delete=models.CASCADE, related_name='mentee_request')
     team = models.ForeignKey(Teams, on_delete=models.CASCADE, null=True)
     mentor = models.ForeignKey(Profile, on_delete=models.CASCADE)
