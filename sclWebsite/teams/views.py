@@ -27,7 +27,7 @@ def single_team(request, team_id):
     if user.profile.role == 1:
         return render(request, 'teams/team.html', {'team': team, 'members': team_members})
 
-    if request.POST and user.profile.role == 2:
+    if request.POST and user.profile.role == '2':
         team_update_form = TeamUpdateForm(request.POST, instance=team)
         if team_update_form.is_valid():
             team_update_form.save()

@@ -55,6 +55,7 @@
 
                             <div class="card mb-3">
 
+                        {% if user.profile.role == '2' %}
                                 <div class="card-header" id="headingTwo">
                                     <h5 class="mb-0">
                                         <button class="btn  btn-outline-danger collapsed item-collapse" id="swap"
@@ -64,6 +65,7 @@
                                         </button>
                                     </h5>
                                 </div>
+
                                 <div id="Profile1" class="collapse" aria-labelledby="headingTwo"
                                      data-parent="#accordion">
                                     <div class="card-body">
@@ -80,7 +82,7 @@
                                         </form>
                                     </div>
                                 </div>
-
+{% endif %}
 
                                 <div id="Profile">
                                     <div class="card-body">

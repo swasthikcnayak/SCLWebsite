@@ -99,11 +99,14 @@ def mentors_list(request):
 def request_time(request, mentor_id):
     requesting_user = request.user
     requesting_profile = get_object_or_404(Profile, user__id=requesting_user.id)
+    if requesting_profile.role != '1':
+        messages.error(request, f'Only the participants can book the session')
+        return redirect('mentors')
+    if requesting_profile.team is None:
+        messages.error(request, f'You are not part of any teams to book the session')
+        return redirect('mentors')
     requesting_team = get_object_or_404(Teams, id=requesting_profile.team.id)
     mentor = get_object_or_404(Profile, user__id=mentor_id)
-    if requesting_profile.role != 1:
-        messages.error(request, 'You are not authorized')
-        return redirect('mentors')
     if requesting_team.cookies >= 30:
         request_time_record = Request(requested_by=requesting_profile, team=requesting_team, mentor=mentor)
         request_time_record.save()
