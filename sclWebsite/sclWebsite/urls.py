@@ -19,9 +19,14 @@ from . import views, settings
 from django.conf.urls.static import static
 from django.contrib.auth import views as auth_views
 
+handler404 = 'sclWebsite.views.handler404'
+handler500 = 'sclWebsite.views.handler500'
+handler400 = 'sclWebsite.views.handler400'
+handler403 = 'sclWebsite.views.handler403'
+
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('about/', views.about, name='about'),
+    path('testimonials/', views.about, name='about'),
     path('logout/', views.my_logout, name='logout'),
     path('password-reset/', auth_views.PasswordResetView.as_view(template_name='authorization/password_reset.html'),
          name='password_reset'),
@@ -38,7 +43,6 @@ urlpatterns = [
     path('user/', include('users.urls')),
     path('teams/', include('teams.urls'))
 ]
-
 
 if settings.DEBUG:
     urlpatterns += static(settings.STATIC_URL,

@@ -1,0 +1,101 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block loader %}
+<div id="preloader">
+    <img src="{% static 'assets/img/2x-plain.gif' %}" class="img-fluid">
+</div>
+{% endblock loader %}
+
+{% block content %}
+
+<main id="main">
+
+    <section id="breadcrumbs" class="breadcrumbs">
+        <div class="container">
+
+            <div class="d-flex justify-content-between align-items-center">
+                <h2>Testimonials</h2>
+                <ol>
+                    <li><a href="{% url 'home' %}">Home</a></li>
+                    <li>Testimonials</li>
+                </ol>
+            </div>
+
+        </div>
+    </section><!-- End Breadcrumbs -->
+
+    <!-- ======= About Section ======= -->
+    <section id="about" class="about">
+        <div class="container" data-aos="fade-up">
+
+            <div class="row">
+
+                <div class="col-lg-4 video-box align-self-baseline" data-aos="fade-right" data-aos-delay="100">
+                    <img src="{% static 'assets/img/testimonials/Ajay.png' %}" class="img-fluid" alt="">
+                </div>
+
+                <div class="col-lg-4 video-box align-self-baseline" data-aos="fade-right" data-aos-delay="100">
+                    <img src="{% static 'assets/img/testimonials/Anand.png' %}" class="img-fluid" alt="">
+                </div>
+
+
+                <div class="col-lg-4 video-box align-self-baseline" data-aos="fade-right" data-aos-delay="100">
+                    <img src="{% static 'assets/img/testimonials/Rishabh.png' %}" class="img-fluid" alt="">
+                </div>
+            </div>
+            <br>
+            <br>
+
+            <div class="row">
+                <div class="col-lg-4 wow fadeInUp order-1 order-lg-2" data-aos="fade-left" data-aos-delay="100">
+                    <img src="{% static 'assets/img/testimonials/Bhargavi.png' %}" class="img-fluid" alt="">
+                </div>
+
+                <div class="col-lg-4 wow fadeInUp order-1 order-lg-2" data-aos="fade-left" data-aos-delay="100">
+                    <img src="{% static 'assets/img/testimonials/Gagan.png' %}" class="img-fluid" alt="">
+                </div>
+
+                <div class="col-lg-4 wow fadeInUp order-1 order-lg-2" data-aos="fade-left" data-aos-delay="100">
+                    <img src="{% static 'assets/img/testimonials/Shravya.png' %}" class="img-fluid" alt="">
+                </div>
+            </div>
+
+            <br>
+            <br>
+
+            <div class="row">
+
+                <div class="col-lg-4 video-box align-self-baseline" data-aos="fade-right" data-aos-delay="100">
+                    <img src="{% static 'assets/img/testimonials/Keerthi.png' %}" class="img-fluid" alt="">
+                </div>
+                <div class="col-lg-4 wow fadeInUp order-1 order-lg-2" data-aos="fade-left" data-aos-delay="100">
+                    <img src="{% static 'assets/img/testimonials/Niranjan.png' %}" class="img-fluid" alt="">
+                </div>
+
+                <div class="col-lg-4 video-box align-self-baseline" data-aos="fade-right" data-aos-delay="100">
+                    <img src="{% static 'assets/img/testimonials/Shrinidhi.png' %}" class="img-fluid" alt="">
+                </div>
+            </div>
+            <br>
+            <br>
+
+            <div class="row">
+                <div class="col-lg-4 video-box align-self-baseline" data-aos="fade-right" data-aos-delay="100">
+
+                </div>
+                <div class="col-lg-4 video-box align-self-baseline" data-aos="fade-right" data-aos-delay="100">
+                    <img src="{% static 'assets/img/testimonials/vinayaka.png' %}" class="img-fluid" alt="">
+                </div>
+                <div class="col-lg-4 video-box align-self-baseline" data-aos="fade-right" data-aos-delay="100">
+                </div>
+            </div>
+
+
+        </div>
+    </section><!-- End About Section -->
+
+
+</main>
+
+{% endblock content %}

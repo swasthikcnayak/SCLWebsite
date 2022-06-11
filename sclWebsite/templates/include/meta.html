@@ -3,39 +3,39 @@
 <meta charset="utf-8">
 <meta content="width=device-width, initial-scale=1.0" name="viewport">
 {% if title %}
-    <title>Sushiksha - {{ title }}</title>
+    <title>SCL - {{ title }}</title>
 {% else %}
-    <title>Sushiksha - An Initiative by WKC</title>
+    <title>Sushiksha Coding League</title>
 {% endif %}
 
 
 {% if meta_title %}
     <meta property="og:title" content="{{ meta_title }}">
 {% else %}
-    <meta property="og:title" content="Sushiksha">
+    <meta property="og:title" content="SCL">
 {% endif %}
 
-<meta content="Sushiksha, Sophists, World Konkani Centre, WKC, VKSSF, Vishwa Konkani" name="keywords">
+<meta content="Sushiksha, Sophists, World Konkani Centre, WKC, VKSSF, Vishwa Konkani, SCL, " name="keywords">
 
 {% if meta_description %}
     <meta property="og:description" content="{{ meta_description }}">
 {% else %}
     <meta property="og:description"
-          content="Sushiksha is an initiative by VKSSF Alumni Association to create a platform for VKSSF Scholars to realize their potential by enabling personal and professional relationships with VAA members who have succeeded in the path of their chosen career. They will act as role models and provide guidance to the Students (Mentees).">
+          content="SCL is the a long hackathon set up by WKC and Sushiksha to develop the interests of coding among the mentees">
 {% endif %}
 
 {% if meta_image_url %}
     <meta property="og:image" content="{{ meta_image_url }}">
 {% else %}
-    <meta property="og:image" content="{% static 'assets/img/sushikshalogo.png' %}">
+    <meta property="og:image" content="{% static 'assets/img/scllogo.png' %}">
 {% endif %}
 
 <meta property="og:url" content="{% url 'home' %}">
 
 <meta name="twitter:card" content="Sushiksha an initiative by VKSSF Alumni">
 
-<meta property="og:site_name" content="Sushiksha.">
-<meta name="twitter:image:alt" content="Sushiksha logo">
+<meta property="og:site_name" content="SCL website.">
+<meta name="twitter:image:alt" content="SCL logo logo">
 <meta name="google-site-verification" content="SXwa4FmlrrCSYHmHjQ0-BPlNqwZVxEcY9VVMA3a246Q"/>
 <!-- Global site tag (gtag.js) - Google Analytics -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-CP67QJD19W"></script>

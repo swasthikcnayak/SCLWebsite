@@ -9,9 +9,9 @@ def index(request):
 
 def about(request):
     context = {
-        'title': 'About US',
+        'title': 'Testimonials',
     }
-    return render(request, 'webpages/about.html', context=context)
+    return render(request, 'webpages/testimonials.html', context=context)
 
 
 def handler404(request, exception):
@@ -49,10 +49,3 @@ def handler403(request, exception):
 def my_logout(request):
     logout(request)
     return redirect('home')
-
-
-def about(request):
-    context = {
-        'title': 'About US',
-    }
-    return render(request, 'webpages/about.html', context=context)
